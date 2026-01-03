@@ -1,323 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Kumar & Priyanka Wedding</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom styles for elegance and font imports */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fcf8f3; /* Very light cream background */
-        }
-        
-        /* Custom class for the main headline font */
-        .font-playfair {
-            font-family: 'Playfair Display', serif;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        /* Custom scrollbar for aesthetics */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #795548;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #5d4037;
-        }
+<title>Sai Kumar & Priyanka Wedding</title>
 
-        /* --- Hero Styling --- */
-        .hero-bg {
-            background-color: #fcf8f3; /* Light background for high contrast */
-            position: relative; 
-        }
-        
-        /* New style for the content box to simulate an elegant frame */
-        .floral-frame {
-            /* Inner border color (Primary Brown) */
-            border: 4px solid #a37c6d; 
-            padding: 30px;
-            /* Outer shadow/frame color (Lighter Cream/Event background) */
-            box-shadow: 0 0 0 10px #e8d7c4; 
-            border-radius: 12px;
-            margin: 0 auto;
-            max-width: 90%; 
-            background-color: white; /* Ensure text is on a clean white surface */
-        }
-        /* Removing unused styles from previous versions */
-        .hero-bg::before, .text-shadow-subtle { display: none; } 
+<!-- ===================== -->
+<!-- 📱 WhatsApp / Social Preview -->
+<!-- ===================== -->
+<meta property="og:title" content="Sai Kumar & Priyanka Wedding Invitation" />
+<meta property="og:description" content="Join us in celebrating our wedding on 20th March 2026." />
+<meta property="og:image" content="assets/images/preview.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://saivayala.github.io/SaiWebsPriyanka/" />
 
-    </style>
-    <!-- Utility script for Lucide Icons (to easily include SVG icons) -->
-    <script>
-        function icon(name, attributes = {}) {
-            const svgContent = {
-                'heart-handshake': '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5"/><path d="M12 18V6"/><path d="M8 20l4-4 4 4"/><path d="M5 21l3-3"/><path d="M16 21l-3-3"/>',
-                'calendar-check': '<path d="M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="m15 22 4-4"/><path d="m19 18 4-4"/><path d="M17 18h7"/>',
-                'sun': '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/>',
-                'music-3': '<path d="M10 18v-6l-5-3 5-3v6"/><path d="M14 10v6l5 3-5 3v-6"/>',
-                'ring-2': '<path d="M10 16a2 2 0 0 1-4 0v-4a2 2 0 0 1 4 0v4"/><path d="M16 16a2 2 0 0 1-4 0v-4a2 2 0 0 1 4 0v4"/><path d="M2 10h4"/><path d="M18 10h4"/><path d="M2 16h4"/><path d="M18 16h4"/>',
-                'gift': '<polyline points="20 12 12 12 12 2"/><polyline points="18 22 18 12 12 12 12 2"/><path d="M22 6H2"/><path d="M22 10H2"/><path d="M2 14h20"/><path d="M2 18h20"/>',
-                'user-square': '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="12" cy="10" r="3"/><path d="M7 21v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/>',
-                'map-pin': '<path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19 12c0 3.73-6 10-7 10s-7-6.27-7-10a7 7 0 1 1 14 0z"/>' // Added map-pin icon
-            };
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-            const defaultAttributes = {
-                xmlns: 'http://www.w3.org/2000/svg',
-                width: '24',
-                height: '24',
-                viewBox: '0 0 24 24',
-                fill: 'none',
-                stroke: 'currentColor',
-                'stroke-width': '2',
-                'stroke-linecap': 'round',
-                'stroke-linejoin': 'round',
-                class: 'inline-block align-middle mr-2'
-            };
+<!-- Fonts -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
 
-            const finalAttributes = { ...defaultAttributes, ...attributes };
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fcf8f3;
+}
 
-            let svg = `<svg`;
-            for (const [key, value] of Object.entries(finalAttributes)) {
-                svg += ` ${key}="${value}"`;
-            }
-            svg += `>${svgContent[name]}</svg>`;
-            return svg;
-        }
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
 
-        // --- Core JavaScript for Map Logic ---
-        function setMapLinks() {
-            // Function to check if the device is iOS
-            const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-            // Function to check if the device is Android
-            const isAndroid = /Android/.test(navigator.userAgent);
+.floral-frame {
+  border: 4px solid #a37c6d;
+  padding: 32px;
+  box-shadow: 0 0 0 10px #e8d7c4;
+  border-radius: 14px;
+  background: white;
+}
 
-            // Mapping event names to their coordinates/queries (UPDATED WITH USER'S COORDINATES)
-            const mapData = {
-                // Coordinates derived from user's first URL (15.755838, 80.343663)
-                'haldi-map': { q: 'Haldi Ceremony Venue', lat: 15.755838, lon: 80.343663 },
-                'sangeeth-map': { q: 'Sangeeth Night Venue', lat: 15.755838, lon: 80.343663 },
-                'wedding-map': { q: 'Sai Kumar\'s Residence', lat: 15.755838, lon: 80.343663 },
-                
-                // Coordinates derived from user's second URL (17.6789045, 83.1965522)
-                'reception-map': { q: 'Srinivas Function Hall, Gajuwaka', lat: 17.6789398, lon: 83.1964143 }
-            };
-
-            for (const id in mapData) {
-                const link = document.getElementById(id);
-                if (!link) continue;
-
-                const { q, lat, lon } = mapData[id];
-
-                let href = '';
-                
-                if (isiOS) {
-                    // iOS prefers Apple Maps deep links with query/name
-                    href = `https://maps.apple.com/?q=${encodeURIComponent(q)}&ll=${lat},${lon}&dirflg=d`;
-                } else if (isAndroid) {
-                    // Android and general use default to Google Maps Search URL
-                    // Note: Google Maps link works better with precise coordinates for navigation
-                    href = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
-                } else {
-                    // Fallback for desktop/other devices (Google Maps URL)
-                    href = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`;
-                }
-
-                link.href = href;
-            }
-        }
-        
-        // Run the function when the window loads to ensure all elements are ready
-        window.onload = setMapLinks;
-    </script>
+/* Floating music button */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #a37c6d;
+  color: white;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  z-index: 1000;
+}
+</style>
 </head>
-<body class="min-h-screen">
 
-    <!-- HERO SECTION: Couple's Names and Date -->
-    <header class="hero-bg text-[#795548] shadow-xl">
-        <div class="hero-content py-16 md:py-24 lg:py-32 rounded-b-2xl">
-            <!-- The actual content wrapper with the frame effect -->
-            <div class="floral-frame max-w-4xl">
-                <p class="text-lg md:text-xl tracking-widest uppercase mb-2 font-light">
-                    <span class="text-3xl mr-2 align-middle">🌸</span> The Beginning of Forever <span class="text-3xl ml-2 align-middle">🌸</span>
-                </p>
-                <h1 class="font-playfair text-6xl md:text-8xl lg:text-9xl font-bold mb-4">
-                    Sai Kumar <!-- GROOM NAME FIRST -->
-                    <span class="text-4xl md:text-6xl mx-4">&amp;</span>
-                    Priyanka <!-- BRIDE NAME SECOND -->
-                </h1>
-                <p class="text-2xl md:text-3xl font-medium tracking-wider mt-4">20th March 2026</p>
-                <p class="text-sm italic mt-2 opacity-80">We request the pleasure of your company</p>
-            </div>
-        </div>
-    </header>
+<body>
 
-    <!-- COUPLE DETAILS SECTION -->
-    <section class="py-16 md:py-24 max-w-6xl mx-auto px-4">
-        <h2 class="font-playfair text-4xl font-bold text-[#795548] mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-1 after:bg-[#795548]">
-            <!-- Icon is included in the header content (using x-html convention) -->
-            <span class="align-middle" x-html="icon('heart-handshake', { class: 'w-8 h-8 mr-3' })"></span> The Bride & Groom
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            
-            <!-- GROOM CARD (Now first) -->
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300">
-                <div class="flex flex-col items-center">
-                    <!-- Cartoon Image for Groom (using object-position: right to center the groom's face) -->
-                    <img src="http://googleusercontent.com/image_generation_content/0" 
-                         alt="Sai Kumar Cartoon Image" 
-                         class="w-32 h-32 rounded-full object-cover object-right mb-4 border-4 border-[#a37c6d] shadow-md"
-                    >
-                    <h3 class="font-playfair text-3xl font-semibold text-[#a37c6d] mb-4">Sai Kumar (The Groom)</h3>
-                </div>
-                <p class="text-gray-700 mb-3">Son of [Smt. & Sri. Mother's/Father's Name]</p>
-                <p class="text-sm italic text-gray-500">"Sai Kumar is a dedicated individual, known for his warm smile and adventurous spirit. He looks forward to building a beautiful life together."</p>
-            </div>
+<!-- ===================== -->
+<!-- 🎵 Background Music -->
+<!-- ===================== -->
+<audio id="bg-music" loop>
+  <source src="assets/music/wedding.mp3" type="audio/mpeg">
+</audio>
 
-            <!-- BRIDE CARD (Now second) -->
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300">
-                <div class="flex flex-col items-center">
-                    <!-- Cartoon Image for Bride (using object-position: left to center the bride's face) -->
-                    <img src="/resource/bride_profile_mini.png" 
-                         alt="Priyanka Cartoon Image" 
-                         class="w-32 h-32 rounded-full object-cover object-left mb-4 border-4 border-[#a37c6d] shadow-md"
-                    >
-                    <h3 class="font-playfair text-3xl font-semibold text-[#a37c6d] mb-4">Priyanka (The Bride)</h3>
-                </div>
-                <p class="text-gray-700 mb-3">Daughter of [Smt. & Sri. Mother's/Father's Name]</p>
-                <p class="text-sm italic text-gray-500">"Priyanka is a kind soul with a passion for music and a heart full of joy. She is ready to embark on this new chapter."</p>
-            </div>
-        </div>
-    </section>
+<div class="music-btn" onclick="toggleMusic()" id="musicBtn">🔊</div>
 
-    <!-- EVENTS SECTION -->
-    <section class="bg-[#e8d7c4] py-16 md:py-24 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="font-playfair text-4xl font-bold text-[#795548] mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-1 after:bg-[#795548]">
-                <span class="align-middle" x-html="icon('calendar-check', { class: 'w-8 h-8 mr-3' })"></span> Schedule of Celebrations
-            </h2>
+<script>
+const music = document.getElementById("bg-music");
+const btn = document.getElementById("musicBtn");
 
-            <!-- Grid layout for events -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- HALDI CARD (March 19th Morning) -->
-                <div class="bg-white p-6 rounded-2xl shadow-xl transition duration-300 hover:shadow-2xl flex flex-col justify-between text-center">
-                    <div>
-                        <div class="text-[#f59e0b] mb-4" x-html="icon('sun', { class: 'w-10 h-10 mx-auto stroke-current' })"></div>
-                        <h3 class="font-playfair text-2xl font-bold text-[#795548] mb-2">Haldi</h3>
-                        <p class="text-lg font-semibold text-gray-800">Thursday, 19th Mar</p>
-                        <p class="text-md text-gray-600 mb-4">Morning (Time Placeholder)</p>
-                        <!-- Updated venue text -->
-                        <p class="text-sm italic text-gray-700 mb-4">Venue: Bride groom's place</p>
-                    </div>
-                    <a 
-                        id="haldi-map"
-                        href="#" 
-                        target="_blank" 
-                        class="mt-auto block w-full bg-[#a37c6d] hover:bg-[#8d6a5d] text-white text-sm font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 flex items-center justify-center"
-                    >
-                        <script>document.write(icon('map-pin', { class: 'w-4 h-4 mr-1 stroke-current' }))</script>Map
-                    </a>
-                </div>
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    btn.textContent = "🔊";
+  } else {
+    music.pause();
+    btn.textContent = "🔇";
+  }
+}
 
-                <!-- SANGEETH CARD (March 19th Evening) -->
-                <div class="bg-white p-6 rounded-2xl shadow-xl transition duration-300 hover:shadow-2xl flex flex-col justify-between text-center">
-                    <div>
-                        <div class="text-[#795548] mb-4" x-html="icon('music-3', { class: 'w-10 h-10 mx-auto stroke-current' })"></div>
-                        <h3 class="font-playfair text-2xl font-bold text-[#795548] mb-2">Sangeeth</h3>
-                        <p class="text-lg font-semibold text-gray-800">Thursday, 19th Mar</p>
-                        <p class="text-md text-gray-600 mb-4">Evening (After 7:30 PM)</p>
-                        <!-- Updated venue text -->
-                        <p class="text-sm italic text-gray-700 mb-4">Venue: Bride groom's place</p>
-                    </div>
-                    <a 
-                        id="sangeeth-map"
-                        href="#" 
-                        target="_blank" 
-                        class="mt-auto block w-full bg-[#a37c6d] hover:bg-[#8d6a5d] text-white text-sm font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 flex items-center justify-center"
-                    >
-                        <script>document.write(icon('map-pin', { class: 'w-4 h-4 mr-1 stroke-current' }))</script>Map
-                    </a>
-                </div>
+// Auto-play after first interaction (mobile-safe)
+document.addEventListener("click", () => {
+  if (music.paused) music.play();
+}, { once: true });
+</script>
 
-                <!-- WEDDING CARD (March 20th) -->
-                <div class="bg-white p-6 rounded-2xl shadow-xl transition duration-300 hover:shadow-2xl flex flex-col justify-between text-center">
-                    <div>
-                        <div class="text-[#795548] mb-4" x-html="icon('ring-2', { class: 'w-10 h-10 mx-auto stroke-current' })"></div>
-                        <h3 class="font-playfair text-2xl font-bold text-[#795548] mb-2">The Wedding</h3>
-                        <p class="text-lg font-semibold text-gray-800">Friday, 20th Mar</p>
-                        <p class="text-md text-gray-600 mb-4">9:30 PM Onwards</p>
-                        <!-- Updated venue text -->
-                        <p class="text-sm italic text-gray-700 mb-4">Venue: Bride groom's place </p>
-                    </div>
-                    <a 
-                        id="wedding-map"
-                        href="#" 
-                        target="_blank" 
-                        class="mt-auto block w-full bg-[#a37c6d] hover:bg-[#8d6a5d] text-white text-sm font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 flex items-center justify-center"
-                    >
-                        <script>document.write(icon('map-pin', { class: 'w-4 h-4 mr-1 stroke-current' }))</script>Map
-                    </a>
-                </div>
+<!-- ===================== -->
+<!-- HERO -->
+<!-- ===================== -->
+<header class="py-24 text-center text-[#795548]">
+  <div class="max-w-4xl mx-auto floral-frame">
+    <p class="uppercase tracking-widest mb-4">🌸 The Beginning of Forever 🌸</p>
+    <h1 class="font-playfair text-6xl md:text-8xl font-bold mb-4">
+      Sai Kumar <span class="mx-4">&</span> Priyanka
+    </h1>
+    <p class="text-2xl font-semibold">20th March 2026</p>
+    <p class="italic mt-2">We request the pleasure of your company</p>
 
-                <!-- RECEPTION CARD (March 29th) -->
-                <div class="bg-white p-6 rounded-2xl shadow-xl transition duration-300 hover:shadow-2xl flex flex-col justify-between text-center">
-                    <div>
-                        <div class="text-[#795548] mb-4" x-html="icon('gift', { class: 'w-10 h-10 mx-auto stroke-current' })"></div>
-                        <h3 class="font-playfair text-2xl font-bold text-[#795548] mb-2">Reception</h3>
-                        <p class="text-lg font-semibold text-gray-800">Sunday, 29th Mar</p>
-                        <p class="text-md text-gray-600 mb-4">Noon Onwards (Lunch)</p>
-                        <!-- Updated venue text -->
-                        <p class="text-sm italic text-gray-700 mb-4">Venue: Srinivas Function Hall, Chinagantyada, Gajuwaka</p>
-                    </div>
-                    <a 
-                        id="reception-map"
-                        href="#" 
-                        target="_blank" 
-                        class="mt-auto block w-full bg-[#a37c6d] hover:bg-[#8d6a5d] text-white text-sm font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 flex items-center justify-center"
-                    >
-                        <script>document.write(icon('map-pin', { class: 'w-4 h-4 mr-1 stroke-current' }))</script>Map
-                    </a>
-                </div>
+    <!-- ⏳ Countdown -->
+    <div class="mt-8 text-lg font-semibold" id="countdown"></div>
+  </div>
+</header>
 
-            </div>
-        </div>
-    </section>
+<!-- ===================== -->
+<!-- ⏳ Countdown Script -->
+<!-- ===================== -->
+<script>
+const weddingDate = new Date("March 20, 2026 21:30:00").getTime();
 
-    <!-- RSVP AND NOTES -->
-    <section class="py-16 md:py-24 max-w-6xl mx-auto px-4 text-center">
-        <h2 class="font-playfair text-4xl font-bold text-[#795548] mb-8">
-            <span class="align-middle" x-html="icon('user-square', { class: 'w-8 h-8 mr-3' })"></span> Notes for Our Guests
-        </h2>
-        <p class="max-w-3xl mx-auto text-gray-700 mb-8">
-            Your presence is the most cherished gift. We have intentionally kept the design elegant and simple for easy viewing on any mobile device.
-        </p>
-        
-        <a href="[Insert Actual RSVP Link Here]" 
-           class="inline-block bg-[#a37c6d] hover:bg-[#8d6a5d] text-white text-xl font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 transform hover:translate-y-[-2px] mb-4">
-            RSVP (Placeholder Link)
-        </a>
-        <p class="text-sm text-gray-500">Kindly inform us of your attendance by [Date Placeholder].</p>
-        
-        <p class="mt-8 text-sm text-gray-500">For any assistance, please contact: [Contact Person & Number]</p>
-    </section>
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
 
-    <!-- FOOTER -->
-    <footer class="bg-[#795548] text-white py-6 mt-12">
-        <div class="max-w-6xl mx-auto px-4">
-            <p class="text-center text-sm">&copy; 2026 Sai Kumar & Priyanka. Thank you for being a part of our journey.</p>
-        </div>
-    </footer>
+  if (diff < 0) {
+    document.getElementById("countdown").innerHTML = "💍 It's Wedding Time!";
+    return;
+  }
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("countdown").innerHTML =
+    `⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds`;
+}, 1000);
+</script>
+
+<!-- ===================== -->
+<!-- COUPLE -->
+<!-- ===================== -->
+<section class="py-20">
+<div class="max-w-6xl mx-auto px-4">
+<div class="grid md:grid-cols-2 gap-12 text-center">
+
+<div class="bg-white p-8 rounded-xl shadow-lg">
+<img src="assets/images/groom.jpg" class="w-36 h-36 mx-auto rounded-full border-5 border-[#a37c6d]" />
+<h3 class="font-playfair text-3xl mt-4 text-[#a37c6d]">Sai Kumar Vayala</h3>
+<p class="mt-2">Son of Smt. Padma & Sri. Ankaiah</p>
+</div>
+
+<div class="bg-white p-8 rounded-xl shadow-lg">
+<img src="assets/images/bride.jpg" class="w-36 h-36 mx-auto rounded-full border-5 border-[#a37c6d]" />
+<h3 class="font-playfair text-3xl mt-4 text-[#a37c6d]">Priyanka Sarvasuddi</h3>
+<p class="mt-2">Daughter of Smt. Venkatalakshmi & Sri. Santosh</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ===================== -->
+<!-- 📍 EVENTS WITH MAPS -->
+<!-- ===================== -->
+<section class="py-20 bg-[#e8d7c4]">
+<div class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-6 text-center">
+
+<div class="bg-white p-6 rounded-xl shadow">
+<h3 class="font-playfair">Haldi</h3>
+<p>19 Mar – Morning</p>
+<a href="https://www.google.com/maps/place/15%C2%B045'21.0%22N+80%C2%B020'37.2%22E/@15.7558815,80.3429395,144m/data=!3m1!1e3!4m4!3m3!8m2!3d15.755838!4d80.343663?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" target="_blank"
+rel="noopener"
+   class="inline-flex items-center justify-center gap-2
+          mt-3 bg-[#a37c6d] hover:bg-[#8d6a5d]
+          text-white px-4 py-2 rounded
+          shadow-md transition duration-300">
+
+  <!-- 📍 Map SVG Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       class="w-5 h-5">
+    <path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
+
+  <span>Open in Maps</span>
+</a>
+</div>
+
+<div class="bg-white p-6 rounded-xl shadow">
+<h3 class="font-playfair">Sangeeth</h3>
+<p>19 Mar – Evening</p>
+<a href="https://www.google.com/maps/place/15%C2%B045'21.0%22N+80%C2%B020'37.2%22E/@15.7558815,80.3429395,144m/data=!3m1!1e3!4m4!3m3!8m2!3d15.755838!4d80.343663?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" target="_blank"
+rel="noopener"
+   class="inline-flex items-center justify-center gap-2
+          mt-3 bg-[#a37c6d] hover:bg-[#8d6a5d]
+          text-white px-4 py-2 rounded
+          shadow-md transition duration-300">
+
+  <!-- 📍 Map SVG Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       class="w-5 h-5">
+    <path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
+
+  <span>Open in Maps</span>
+</a>
+</div>
+
+<div class="bg-white p-6 rounded-xl shadow">
+<h3 class="font-playfair">Wedding</h3>
+<p>20 Mar – 9:30 PM onwards</p>
+<a href="https://www.google.com/maps/place/15%C2%B045'21.0%22N+80%C2%B020'37.2%22E/@15.7558815,80.3429395,144m/data=!3m1!1e3!4m4!3m3!8m2!3d15.755838!4d80.343663?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" target="_blank"
+rel="noopener"
+   class="inline-flex items-center justify-center gap-2
+          mt-3 bg-[#a37c6d] hover:bg-[#8d6a5d]
+          text-white px-4 py-2 rounded
+          shadow-md transition duration-300">
+
+  <!-- 📍 Map SVG Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       class="w-5 h-5">
+    <path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
+
+  <span>Open in Maps</span>
+</a>
+</div>
+
+<div class="bg-white p-6 rounded-xl shadow">
+<h3 class="font-playfair">Reception</h3>
+<p>29 Mar – Lunch</p>
+<a href="https://www.google.com/maps/place/Srinivas+Function+Hall/@17.6789495,83.1963897,51m/data=!3m1!1e3!4m12!1m5!3m4!2zMTfCsDQwJzQ0LjIiTiA4M8KwMTEnNDcuMSJF!8m2!3d17.6789398!4d83.1964143!3m5!1s0x3a3969c0e67966cd:0xe4e9bff99e49543a!8m2!3d17.6789045!4d83.1965522!16s%2Fg%2F11gjy0n2jc"
+   target="_blank"
+   rel="noopener"
+   class="inline-flex items-center justify-center gap-2
+          mt-3 bg-[#a37c6d] hover:bg-[#8d6a5d]
+          text-white px-4 py-2 rounded
+          shadow-md transition duration-300">
+
+  <!-- 📍 Map SVG Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       class="w-5 h-5">
+    <path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
+
+  <span>Open in Maps</span>
+</a>
+
+
+</div>
+
+</div>
+</section>
+
+<!-- ===================== -->
+<!-- FOOTER -->
+<!-- ===================== -->
+<footer class="bg-[#795548] text-white py-6 text-center">
+<p>&copy; 2026 Sai Kumar & Priyanka</p>
+</footer>
 
 </body>
 </html>
