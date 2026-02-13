@@ -5,260 +5,290 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Sai Kumar & Priyanka Wedding</title>
+    <title>Sai Kumar & Priyanka | The Wedding</title>
 
-    <!-- ===================== -->
-    <!-- 📱 WhatsApp / Social Preview -->
-    <!-- ===================== -->
-    <meta property="og:title" content="Sai Kumar & Priyanka Wedding Invitation" />
-    <meta property="og:description" content="Join us in celebrating our wedding on 20th March 2026." />
-    <meta property="og:image" content="assets/images/preview.jpg" />
+    <meta property="og:title" content="We are getting married! Sai Kumar & Priyanka" />
+    <meta property="og:description" content="We invite you to share in our joy as we begin our new life together. 20th March 2026." />
+    <meta property="og:image" content="https://saivayala.github.io/SaiWebsPriyanka/assets/images/preview.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://saivayala.github.io/SaiWebsPriyanka/" />
 
-    <!-- Tailwind -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
-        
+        :root {
+            --primary: #8d6e63;
+            --gold: #d4af37;
+            --cream: #fdfbf7;
+        }
+
         body {
-          font-family: 'Inter', sans-serif;
-          background-color: #fcf8f3;
+            font-family: 'Lato', sans-serif;
+            background-color: var(--cream);
+            color: #4a4a4a;
+            overflow-x: hidden;
         }
-        
-        .font-playfair {
-          font-family: 'Playfair Display', serif;
+
+        .font-script { font-family: 'Great Vibes', cursive; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+
+        /* Music Button Pulse */
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
-        
-        .floral-frame {
-          border: 4px solid #a37c6d;
-          padding: 32px;
-          box-shadow: 0 0 0 10px #e8d7c4;
-          border-radius: 14px;
-          background: white;
-        }
-        
-        /* Floating music button */
+
         .music-btn {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          background: #a37c6d;
-          color: white;
-          width: 52px;
-          height: 52px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 22px;
-          cursor: pointer;
-          box-shadow: 0 10px 20px rgba(0,0,0,.25);
-          z-index: 1000;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #a37c6d, #8d6a5d);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 50;
+            transition: transform 0.3s ease;
         }
+
+        .music-btn.playing { animation: pulse-gold 2s infinite; }
+
+        /* Countdown Box Styling */
+        .timer-box {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #e0e0e0;
+            min-width: 80px;
+        }
+
+        /* Swiper Customization */
+        .swiper-pagination-bullet-active { background-color: #a37c6d !important; }
+        .swiper-slide img { 
+            transition: transform 0.5s ease; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+        .swiper-slide:hover img { transform: scale(1.05); }
+        
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 
-<body>
+<body class="antialiased">
 
-    <!-- ===================== -->
-    <!-- 🎵 Background Music -->
-    <!-- ===================== -->
     <audio id="bg-music" loop>
         <source src="assets/music/wedding.mp3" type="audio/mpeg">
     </audio>
+    <div class="music-btn" onclick="toggleMusic()" id="musicBtn" title="Play Music">🔇</div>
 
-    <div class="music-btn" onclick="toggleMusic()" id="musicBtn">🔊</div>
+    <header class="relative min-h-screen flex items-center justify-center py-20 bg-cover bg-center">
+        <div class="absolute inset-0 bg-white/80 backdrop-blur-[2px]"></div>
+        <div class="relative z-10 container mx-auto px-4 text-center" data-aos="zoom-in" data-aos-duration="1500">
+            <div class="max-w-4xl mx-auto border border-[#d4af37] bg-white/60 p-12 md:p-16 shadow-2xl rounded-sm">
+                <p class="font-serif text-[#8d6e63] tracking-[0.3em] text-sm uppercase mb-4">The Start of Our Forever</p>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-[#5d4037] mb-2">Sai Kumar</h1>
+                <div class="font-script text-5xl md:text-6xl text-[#d4af37] my-2">&</div>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-[#5d4037] mb-8">Priyanka</h1>
+                
+                <div class="flex items-center justify-center gap-4 text-[#795548] font-bold text-lg md:text-xl mb-8">
+                    <span class="border-t border-[#a37c6d] w-12"></span>
+                    <span>20 . 03 . 2026</span>
+                    <span class="border-t border-[#a37c6d] w-12"></span>
+                </div>
 
-    <script>
-        const music = document.getElementById("bg-music");
-        const btn = document.getElementById("musicBtn");
-        
-        function toggleMusic() {
-          if (music.paused) {
-            music.play();
-            btn.textContent = "🔊";
-          } else {
-            music.pause();
-            btn.textContent = "🔇";
-          }
-        }
-        
-        // Auto-play after first interaction (mobile-safe)
-        document.addEventListener("click", () => {
-          if (music.paused) music.play();
-        }, { once: true });
-    </script>
-
-    <!-- ===================== -->
-    <!-- HERO -->
-    <!-- ===================== -->
-    <header class="py-24 text-center text-[#795548]">
-        <div class="max-w-4xl mx-auto floral-frame">
-            <p class="uppercase tracking-widest mb-4">🌸 Two Hearts • One Promise • A Lifetime Together 🌸</p>
-            <h1 class="font-playfair text-6xl md:text-8xl font-bold mb-4">
-      Sai Kumar <span class="mx-4">&</span> Priyanka
-    </h1>
-            <p class="text-2xl font-semibold">20th March 2026</p>
-            <p class="italic mt-2">Join us as we begin our forever with love and blessings</p>
-
-            <!-- ⏳ Countdown -->
-            <div class="mt-8 text-lg font-semibold" id="countdown"></div>
+                <div id="countdown" class="flex flex-wrap justify-center gap-4 mt-10"></div>
+            </div>
         </div>
     </header>
 
-    <!-- ===================== -->
-    <!-- ⏳ Countdown Script -->
-    <!-- ===================== -->
+    <section class="py-24 bg-[#fcf8f3]">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-script text-5xl text-[#a37c6d] mb-2">The Happy Couple</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
+                <div class="text-center group" data-aos="fade-right">
+                    <div class="relative w-64 h-64 mx-auto mb-6">
+                        <img src="assets/images/groom.jpg" class="w-full h-full object-cover rounded-full border-4 border-white shadow-xl"
+                             onerror="this.src='https://via.placeholder.com/300x300/a37c6d/ffffff?text=Groom'"/>
+                    </div>
+                    <h3 class="font-serif text-3xl text-[#5d4037] font-bold">Sai Kumar Vayala</h3>
+                    <p class="text-[#8d6e63] font-medium mt-2">S/o Smt. Padma & Sri. Ankaiah</p>
+                </div>
+                <div class="text-center group" data-aos="fade-left">
+                    <div class="relative w-64 h-64 mx-auto mb-6">
+                        <img src="assets/images/bride.jpg" class="w-full h-full object-cover rounded-full border-4 border-white shadow-xl"
+                             onerror="this.src='https://via.placeholder.com/300x300/a37c6d/ffffff?text=Bride'"/>
+                    </div>
+                    <h3 class="font-serif text-3xl text-[#5d4037] font-bold">Priyanka Sarvasuddi</h3>
+                    <p class="text-[#8d6e63] font-medium mt-2">D/o Smt. Venkatalakshmi & Sri. Santosh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white relative">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-script text-5xl text-[#a37c6d] mb-2">Wedding Events</h2>
+                <p class="text-gray-500 uppercase tracking-widest text-sm">Join us in the celebration</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-[#fcf8f3] rounded-lg p-6 shadow-lg border-t-4 border-[#d4af37] transform hover:-translate-y-2 transition duration-300 flex flex-col h-full" data-aos="fade-up">
+                    <div class="text-center">
+                        <div class="text-[#d4af37] text-4xl mb-4">✨</div>
+                        <h3 class="font-serif text-2xl font-bold text-[#5d4037] mb-1">Haldi</h3>
+                        <p class="text-[#a37c6d] font-bold mb-4">19 Mar | Morning</p>
+                        <p class="text-sm text-gray-600 mb-6">A colorful beginning with blessings and turmeric.</p>
+                        <p class="text-xs font-bold text-gray-500 uppercase mb-4">Venue: Groom's House</p>
+                    </div>
+                    <a href="https://www.google.com/maps/place/15%C2%B045'21.0%22N+80%C2%B020'37.2%22E/@15.7558815,80.3429395,144m/data=!3m1!1e3!4m4!3m3!8m2!3d15.755838!4d80.343663?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" target="_blank" rel="noopener" class="mt-auto block w-full py-2 bg-white border border-[#a37c6d] text-[#a37c6d] text-center rounded hover:bg-[#a37c6d] hover:text-white transition text-sm font-medium">View Map</a>
+                </div>
+
+                <div class="bg-[#fcf8f3] rounded-lg p-6 shadow-lg border-t-4 border-[#a37c6d] transform hover:-translate-y-2 transition duration-300 flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <div class="text-[#a37c6d] text-4xl mb-4">💃</div>
+                        <h3 class="font-serif text-2xl font-bold text-[#5d4037] mb-1">Sangeeth</h3>
+                        <p class="text-[#a37c6d] font-bold mb-4">19 Mar | Evening</p>
+                        <p class="text-sm text-gray-600 mb-6">An evening of music, dance, and joy.</p>
+                        <p class="text-xs font-bold text-gray-500 uppercase mb-4">Venue: Groom's House</p>
+                    </div>
+                    <a href="https://www.google.com/maps/place/15%C2%B045'21.0%22N+80%C2%B020'37.2%22E/@15.7558815,80.3429395,144m/data=!3m1!1e3!4m4!3m3!8m2!3d15.755838!4d80.343663?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" target="_blank" rel="noopener" class="mt-auto block w-full py-2 bg-white border border-[#a37c6d] text-[#a37c6d] text-center rounded hover:bg-[#a37c6d] hover:text-white transition text-sm font-medium">View Map</a>
+                </div>
+
+                <div class="bg-[#fcf8f3] rounded-lg p-6 shadow-lg border-t-4 border-[#d4af37] transform hover:-translate-y-2 transition duration-300 flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <div class="text-[#d4af37] text-4xl mb-4">💍</div>
+                        <h3 class="font-serif text-2xl font-bold text-[#5d4037] mb-1">The Wedding</h3>
+                        <p class="text-[#a37c6d] font-bold mb-4">20 Mar | 9:30 PM</p>
+                        <p class="text-sm text-gray-600 mb-6">The auspicious moment (Muhurtham).</p>
+                        <p class="text-xs font-bold text-gray-500 uppercase mb-4">Venue: Groom's House</p>
+                    </div>
+                    <a href="https://www.google.com/maps/place/15%C2%B045'21.0%22N+80%C2%B020'37.2%22E/@15.7558815,80.3429395,144m/data=!3m1!1e3!4m4!3m3!8m2!3d15.755838!4d80.343663?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" target="_blank" rel="noopener" class="mt-auto block w-full py-2 bg-white border border-[#a37c6d] text-[#a37c6d] text-center rounded hover:bg-[#a37c6d] hover:text-white transition text-sm font-medium">View Map</a>
+                </div>
+
+                <div class="bg-[#fcf8f3] rounded-lg p-6 shadow-lg border-t-4 border-[#a37c6d] transform hover:-translate-y-2 transition duration-300 flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <div class="text-[#a37c6d] text-4xl mb-4">🍽️</div>
+                        <h3 class="font-serif text-2xl font-bold text-[#5d4037] mb-1">Reception</h3>
+                        <p class="text-[#a37c6d] font-bold mb-4">29 Mar | Lunch</p>
+                        <p class="text-sm text-gray-600 mb-6">Celebrate the newlyweds with a grand feast.</p>
+                        <p class="text-xs font-bold text-gray-500 uppercase mb-4">Srinivas Function Hall</p>
+                    </div>
+                    <a href="https://www.google.com/maps/place/Srinivas+Function+Hall/@17.6789495,83.1963897,51m/data=!3m1!1e3!4m12!1m5!3m4!2zMTfCsDQwJzQ0LjIiTiA4M8KwMTEnNDcuMSJF!8m2!3d17.6789398!4d83.1964143!3m5!1s0x3a3969c0e67966cd:0xe4e9bff99e49543a!8m2!3d17.6789045!4d83.1965522!16s%2Fg%2F11gjy0n2jc" target="_blank" rel="noopener" class="mt-auto block w-full py-2 bg-white border border-[#a37c6d] text-[#a37c6d] text-center rounded hover:bg-[#a37c6d] hover:text-white transition text-sm font-medium">View Map</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#fcf8f3] overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="font-script text-5xl text-[#a37c6d] mb-2">Captured Moments</h2>
+                <p class="text-gray-500 uppercase tracking-widest text-sm">A glimpse into our journey</p>
+            </div>
+
+            <div class="swiper mySwiper w-full max-w-6xl pb-12" data-aos="zoom-in">
+                <div class="swiper-wrapper" id="gallery-wrapper">
+                    </div>
+                <div class="swiper-pagination mt-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#5d4037] text-[#eefe] py-12 text-center relative overflow-hidden">
+        <div class="relative z-10 px-4">
+            <h2 class="font-script text-4xl mb-4">Sai & Priyanka</h2>
+            <p class="text-sm uppercase tracking-widest mb-6">Forever Begins Here</p>
+            <p class="text-xs text-gray-400">© 2026 Designed with ❤️ for the Family</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
     <script>
-        const weddingDate = new Date("March 20, 2026 21:30:00").getTime();
+        // --- 1. CONFIGURATION FOR GALLERY ---
+        // INSTRUCTIONS:
+        // 1. Create a folder: assets/images/movements/
+        // 2. Name your images: 1.jpg, 2.jpg, 3.jpg, 4.jpg, etc.
+        // 3. Change 'totalImages' below to the number of photos you have.
         
+        const galleryFolder = "assets/images/movements/";
+        const totalImages = 6; // <--- CHANGE THIS NUMBER based on how many photos you have!
+
+        // --- 2. DYNAMIC GALLERY LOADER ---
+        const galleryWrapper = document.getElementById('gallery-wrapper');
+        
+        for (let i = 1; i <= totalImages; i++) {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `
+                <div class="relative h-[400px] rounded-lg overflow-hidden shadow-lg group bg-white">
+                    <img src="${galleryFolder}${i}.jpg" 
+                         class="w-full h-full object-cover" 
+                         alt="Gallery Image ${i}"
+                         onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-gray-400 text-xs\\'>Image ${i}.jpg not found</div>'">
+                </div>
+            `;
+            galleryWrapper.appendChild(slide);
+        }
+
+        // --- 3. INIT LIBRARIES ---
+        AOS.init({ once: true, duration: 1000 });
+
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: { delay: 2500, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                1024: { slidesPerView: 3, spaceBetween: 30 },
+            },
+        });
+
+        // --- 4. MUSIC & COUNTDOWN ---
+        const music = document.getElementById("bg-music");
+        const btn = document.getElementById("musicBtn");
+        function toggleMusic() {
+          if (music.paused) { music.play(); btn.textContent = "🔊"; btn.classList.add("playing"); }
+          else { music.pause(); btn.textContent = "🔇"; btn.classList.remove("playing"); }
+        }
+        document.body.addEventListener("click", () => {
+             if (music.paused) { music.play(); btn.textContent = "🔊"; btn.classList.add("playing"); }
+        }, { once: true });
+
+        const weddingDate = new Date("March 20, 2026 21:30:00").getTime();
         setInterval(() => {
           const now = new Date().getTime();
           const diff = weddingDate - now;
-        
-          if (diff < 0) {
-            document.getElementById("countdown").innerHTML = "💍 It's Wedding Time!";
-            return;
-          }
-        
+          if (diff < 0) return;
           const d = Math.floor(diff / (1000 * 60 * 60 * 24));
           const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
           const m = Math.floor((diff / (1000 * 60)) % 60);
           const s = Math.floor((diff / 1000) % 60);
-        
-          document.getElementById("countdown").innerHTML =
-            `⏳ ${d} Days ${h} Hours ${m} Minutes ${s} Seconds`;
+          const box = (val, label) => `
+            <div class="timer-box flex flex-col items-center p-3 rounded shadow-sm">
+                <span class="text-2xl md:text-3xl font-bold text-[#5d4037] font-serif">${val}</span>
+                <span class="text-xs uppercase text-gray-500 tracking-wider">${label}</span>
+            </div>`;
+          document.getElementById("countdown").innerHTML = box(d, "Days") + box(h, "Hours") + box(m, "Mins") + box(s, "Secs");
         }, 1000);
     </script>
-
-    <!-- ===================== -->
-    <!-- COUPLE -->
-    <!-- ===================== -->
-    <section class="py-20">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 text-center">
-
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <img src="assets/images/groom.jpg" class="w-36 h-36 mx-auto rounded-full border-5 border-[#a37c6d]" />
-                    <h3 class="font-playfair text-3xl mt-4 text-[#a37c6d]">Sai Kumar Vayala</h3>
-                    <p class="mt-2">Son of Smt. Padma & Sri. Ankaiah</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <img src="assets/images/bride.jpg" class="w-36 h-36 mx-auto rounded-full border-5 border-[#a37c6d]" />
-                    <h3 class="font-playfair text-3xl mt-4 text-[#a37c6d]">Priyanka Sarvasuddi</h3>
-                    <p class="mt-2">Daughter of Smt. Venkatalakshmi & Sri. Santosh</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== -->
-    <!-- 📍 EVENTS WITH MAPS -->
-    <!-- ===================== -->
-    <section class="py-20 bg-[#e8d7c4]">
-        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            <div class="bg-white p-6 rounded-xl shadow flex flex-col h-full text-center">
-                <h3 class="font-playfair  text-2xl md:text-3xl font-bold text-[#795548] mb-2">Haldi</h3>
-                <p>19 Mar – Morning</p>
-                <p class="text-sm italic text-gray-700 mb-4">Venue: Groom's House </p>
-                <a href="https://www.google.com/maps/place/15%C2%B045'21.0%22N+80%C2%B020'37.2%22E/@15.7558815,80.3429395,144m/data=!3m1!1e3!4m4!3m3!8m2!3d15.755838!4d80.343663?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" target="_blank" rel="noopener"
-                class="inline-flex items-center justify-center gap-2
-          mt-3 bg-[#a37c6d] hover:bg-[#8d6a5d]
-          text-white px-4 py-2 rounded
-          shadow-md transition duration-300">
-
-                    <!-- 📍 Map SVG Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-                        <path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-
-                    <span>Open in Maps</span>
-                </a>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow flex flex-col h-full text-center">
-                <h3 class="font-playfair  text-2xl md:text-3xl font-bold text-[#795548] mb-2">Sangeeth</h3>
-                <p>19 Mar – Evening</p>
-                <p class="text-sm italic text-gray-700 mb-4">Venue: Groom's House </p>
-                <a href="https://www.google.com/maps/place/15%C2%B045'21.0%22N+80%C2%B020'37.2%22E/@15.7558815,80.3429395,144m/data=!3m1!1e3!4m4!3m3!8m2!3d15.755838!4d80.343663?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" target="_blank" rel="noopener"
-                class="inline-flex items-center justify-center gap-2
-          mt-3 bg-[#a37c6d] hover:bg-[#8d6a5d]
-          text-white px-4 py-2 rounded
-          shadow-md transition duration-300">
-
-                    <!-- 📍 Map SVG Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-                        <path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-
-                    <span>Open in Maps</span>
-                </a>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow flex flex-col h-full text-center">
-                <div>
-                <h3 class="font-playfair  text-2xl md:text-3xl font-bold text-[#795548] mb-2">Wedding</h3>
-                <p class="font-medium">20 Mar – 9:30 PM onwards</p>
-                <p class="text-sm italic text-gray-700 mt-4">Venue: Groom's House </p>
-                </div>
-                <a href="https://www.google.com/maps/place/15%C2%B045'21.0%22N+80%C2%B020'37.2%22E/@15.7558815,80.3429395,144m/data=!3m1!1e3!4m4!3m3!8m2!3d15.755838!4d80.343663?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D" target="_blank" rel="noopener"
-                class="inline-flex items-center justify-center gap-2
-          mt-3 bg-[#a37c6d] hover:bg-[#8d6a5d]
-          text-white px-4 py-2 rounded
-          shadow-md transition duration-300">
-
-                    <!-- 📍 Map SVG Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-                        <path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                    </svg>
-
-                    <span>Open in Maps</span>
-                </a>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow flex flex-col h-full text-center">
-                <div>
-                    <h3 class="font-playfair  text-2xl md:text-3xl font-bold text-[#795548] mb-2">Reception</h3>
-                    <p class="font-medium">29 Mar – Lunch</p>
-                    <p class="text-sm italic text-gray-700 mt-2">
-                        Venue: Srinivas Function Hall,<br>
-                        Chinagantyada, Gajuwaka
-                    </p>
-                </div>
-                    <a href="https://www.google.com/maps/place/Srinivas+Function+Hall/@17.6789495,83.1963897,51m/data=!3m1!1e3!4m12!1m5!3m4!2zMTfCsDQwJzQ0LjIiTiA4M8KwMTEnNDcuMSJF!8m2!3d17.6789398!4d83.1964143!3m5!1s0x3a3969c0e67966cd:0xe4e9bff99e49543a!8m2!3d17.6789045!4d83.1965522!16s%2Fg%2F11gjy0n2jc"
-                    target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2
-          mt-auto bg-[#a37c6d] hover:bg-[#8d6a5d]
-          text-white px-4 py-2 rounded
-          shadow-md transition duration-300">
-
-                        <!-- 📍 Map SVG Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-                            <path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z" />
-                            <circle cx="12" cy="10" r="3" />
-                        </svg>
-
-                        <span>Open in Maps</span>
-                    </a>
-
-            </div>
-    </section>
-
-    <!-- ===================== -->
-    <!-- FOOTER -->
-    <!-- ===================== -->
-    <footer class="bg-[#795548] text-white py-6 text-center">
-        <p>&copy; 2026 Sai Kumar & Priyanka</p>
-    </footer>
-
 </body>
-
 </html>
