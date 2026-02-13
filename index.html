@@ -88,8 +88,8 @@
 
 <body class="antialiased">
 
-    <audio id="bg-music" loop>
-        <source src="assets/music/wedding.mp3" type="audio/mpeg">
+    <audio id="bg-music" loop autoplay>
+        <source src="assets/music/audio_clip.mp4" type="audio/mpeg">
     </audio>
     <div class="music-btn" onclick="toggleMusic()" id="musicBtn" title="Play Music">🔇</div>
 
@@ -266,11 +266,11 @@
         const music = document.getElementById("bg-music");
         const btn = document.getElementById("musicBtn");
         function toggleMusic() {
-          if (music.paused) { music.play(); btn.textContent = "🔊"; btn.classList.add("playing"); }
+          if (music.paused) { music.play(); music.volume= 0.1; btn.textContent = "🔊"; btn.classList.add("playing"); }
           else { music.pause(); btn.textContent = "🔇"; btn.classList.remove("playing"); }
         }
         document.body.addEventListener("click", () => {
-             if (music.paused) { music.play(); btn.textContent = "🔊"; btn.classList.add("playing"); }
+             if (music.paused) { music.play(); music.volume= 0.1; btn.textContent = "🔊"; btn.classList.add("playing"); }
         }, { once: true });
 
         const weddingDate = new Date("March 20, 2026 21:30:00").getTime();
